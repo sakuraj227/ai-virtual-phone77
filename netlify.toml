@@ -2,6 +2,10 @@
   command = "npm run build"
   publish = ".next"
 
+  [build.environment]
+    # Next.js intentionally embeds this public flag in its build output.
+    SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_SELF_HOSTED_MODE"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
